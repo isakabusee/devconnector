@@ -7,11 +7,16 @@ const app = express();
 //Connect Database
 connectDB();
 
-// app.get('/', (req, res) => res.send('API Running'));
+app.get('/', (req, res) => res.send('API Running'));
+app.use('/users', (req, res) => res.send('This is users page'));
+app.use('/auth', (req, res) => res.send('This is auth page'));
+app.use('/posts', (req, res) => res.send('This is the posts page'));
+app.use('/profile', (req, res) => res.send('This is the profile page'));
+
 //another method
-app.get("/", (req, res) => {
-    //handle root
-});
+// app.get("/", (req, res) => {
+//     //handle root
+// });
 
 // Define Routes
 // module.exports = function(app){
