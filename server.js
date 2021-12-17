@@ -7,11 +7,15 @@ const app = express();
 //Connect Database
 connectDB();
 
+//Init Middleware
+app.use(express.json({ extended: false }));
+
 app.get('/', (req, res) => res.send('API Running'));
-app.use('/users', (req, res) => res.send('This is users page'));
-app.use('/auth', (req, res) => res.send('This is auth page'));
-app.use('/posts', (req, res) => res.send('This is the posts page'));
-app.use('/profile', (req, res) => res.send('This is the profile page'));
+// Define routes
+app.use('/api/users', (req, res) => res.send('This is users page'));
+app.use('/api/auth', (req, res) => res.send('This is auth page'));
+app.use('/api/posts', (req, res) => res.send('This is the posts page'));
+app.use('/api/profile', (req, res) => res.send('This is the profile page'));
 
 //another method
 // app.get("/", (req, res) => {
